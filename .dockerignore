@@ -32,6 +32,12 @@ freqtrade.egg-info
 config.json*
 *.sqlite
 user_data/
+!user_data/
+user_data/*
+!user_data/strategies/
+user_data/strategies/*
+!user_data/strategies/TrendRider.py
+!user_data/strategies/TrendRider.json
 *.log
 
 .vscode

@@ -1,0 +1,18 @@
+services:
+  - type: worker
+    name: freqtrade-trendrider
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerCommand: >-
+      trade
+      --config /freqtrade/deployment/freqtrade-render.json
+      --userdir /freqtrade/user_data
+      --strategy TrendRider
+      --db-url sqlite:////var/lib/freqtrade/tradesv3.dryrun.sqlite
+      --logfile /var/lib/freqtrade/freqtrade.log
+    disk:
+      name: freqtrade-data
+      mountPath: /var/lib/freqtrade
+      sizeGB: 1
